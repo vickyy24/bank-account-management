@@ -1,3 +1,5 @@
+// src/services/accountService.js
+
 import axios from "axios";
 
 const API_URL = "http://localhost:9000";
@@ -20,15 +22,15 @@ async function getAccountById(accountid){
 
 async function addAccount(data){
 
-    const response = await axios.post(`${API_URL}/addaccount`, data);
+    const response = await axios.post(`${API_URL}/addaccount`,data);
 
     return response.data;
 
 }
 
-async function updateAccount(accountid, data){
+async function updateAccount(accountid,data){
 
-    const response = await axios.put(`${API_URL}/updateaccount/${accountid}`, data);
+    const response = await axios.put(`${API_URL}/updateaccount/${accountid}`,data);
 
     return response.data;
 

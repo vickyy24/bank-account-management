@@ -1,30 +1,42 @@
-import { useState } from "react"
-import Navbar from "./Navbar"
-import Sidebar from "./Sidebar"
+// src/components/layout/MainLayout.jsx
 
-const MainLayout=({children})=>{
+import { useState } from "react";
 
-    const [isSidebarOpen,setIsSidebarOpen] = useState(false)
+import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
 
-    const handleOpenSidebar=()=>{
-        setIsSidebarOpen(true)
-    }
+const MainLayout = ({ children }) => {
 
-    const handleCloseSidebar=()=>{
-        setIsSidebarOpen(false)
-    }
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-    return(
+    const handleOpenSidebar = () => {
+
+        setIsSidebarOpen(true);
+
+    };
+
+    const handleCloseSidebar = () => {
+
+        setIsSidebarOpen(false);
+
+    };
+
+    return (
 
         <div className="min-h-screen bg-gray-50">
 
             <div className="flex min-h-screen">
 
-                <Sidebar isOpen={isSidebarOpen} onClose={handleCloseSidebar}/>
+                <Sidebar
+                    isOpen={isSidebarOpen}
+                    onClose={handleCloseSidebar}
+                />
 
-                <div className="flex-1 min-w-0">
+                <div className="min-w-0 flex-1">
 
-                    <Navbar onMenuClick={handleOpenSidebar}/>
+                    <Navbar
+                        onMenuClick={handleOpenSidebar}
+                    />
 
                     <main className="p-4 sm:p-6 lg:p-8">
                         {children}
@@ -36,7 +48,8 @@ const MainLayout=({children})=>{
 
         </div>
 
-    )
-}
+    );
 
-export default MainLayout
+};
+
+export default MainLayout;
